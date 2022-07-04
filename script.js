@@ -13,29 +13,19 @@ function gridSquares(){ //create gridSquares
 }
 gridSquares();
 
-
+var mouseDown = false;
+document.body.onmousedown = () => mouseDown = true; //click part of drag and click function
+document.body.onmouseup = () => mouseDown = false;
 
 function gridColor(){
     const grid = document.querySelectorAll('#grid'); //add eventListener to every grid
-    var mouseDown = false;
-
-
+    
     grid.forEach(e =>{
-        e.addEventListener('mousedown', () =>{
-            {
-                mouseDown = true;
-            }
-            
-        e.addEventListener('mouseup', ()=>{
-            mouseDown = false;
-        })
-        })
-    })
-
-    grid.forEach(e =>{
-        e.addEventListener('mouseover', () => {
+        e.addEventListener('mouseover', () => { //drag part of drag and click function
             if(mouseDown == true)
                 e.style.backgroundColor = "pink";
+            else
+                return;
         })
     }) 
 }
