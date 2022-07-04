@@ -1,0 +1,13 @@
+#sixteen{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    width: 1020px;
+    height: 1020px;
+}
+
+#grid{
+    display: flex;    
+    width: 60px;
+    height: 60px;
+}
