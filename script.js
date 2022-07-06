@@ -1,9 +1,9 @@
 const grid = document.querySelector('#grid');
 
 
-function gridSquares(){ //create gridSquares
+function gridSquares(size){ //create gridSquares
     let i = 0;
-    for (i=0;i<256;i++) {
+    for (i=0;i<size*size;i++) {
         const gridSquare = document.createElement('div');
         gridSquare.setAttribute("id","gridSquare");
         grid.appendChild(gridSquare);
@@ -18,7 +18,27 @@ function gridSquares(){ //create gridSquares
     })
 }
 
-gridSquares();
+function gridSlider(){
+    var gridSlider = document.getElementById("gridSlider");
+    var output = document.getElementById("size");
+    output.innerHTML = "16 x 16";
+    gridSquares(16);
+    gridSlider.oninput = function() {
+        clearGrid();
+        output.innerHTML = gridSlider.value + " x " + gridSlider.value;
+        gridSquares(gridSlider.value);
+    }
+}
+gridSlider();
+
+function clearGrid(){
+    grid.innerHTML = '';
+    //const gridSquare = document.querySelectorAll('#gridSquare');
+    //gridSquare.grid.removeChild(gridSquare);
+}
+
+
+
 
 var mouseDown = false;
 document.body.onmousedown = () => mouseDown = true; //click part of drag and click function

@@ -13,3 +13,21 @@
     border-radius: 1px; 
     box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);  /*grid lines*/
 }
+
+.slidecontainer{
+    width: 100%;
+}
+
+.slider{
+    appearance: none;
+    height: 20px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity .2s;
+}
+
+.slider:hover{
+    opacity: 1;
+}
