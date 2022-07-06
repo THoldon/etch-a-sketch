@@ -1,5 +1,5 @@
 const grid = document.querySelector('#grid');
-
+let linesMode = "on";
 
 function gridSquares(size){ //create gridSquares
     let i = 0;
@@ -15,7 +15,9 @@ function gridSquares(size){ //create gridSquares
     gridSquare.forEach( gridSquare =>{ //apply new dimensions
         gridSquare.style.width = dimension + 'px';
         gridSquare.style.height = dimension + 'px';
+        gridSquare.style.boxShadow = "0px 0px 0px 1px rgba(0,0,0,0.07)"; //grid lines
     })
+    linesMode = "on";
 }
 
 function gridSlider(){ //grid size slider
@@ -49,17 +51,49 @@ function gridColor(){
     gridSquare.forEach(e =>{
         e.addEventListener('mouseover', () => { //drag part of drag and click function
             if(mouseDown == true)
-                e.style.backgroundColor = colorPicker();
+                if(penMode == "color")
+                    e.style.backgroundColor = colorPicker();
+                else if (penMode == "erase")
+                    e.style.backgroundColor = "white"; 
             else
                 return;
         })
     }) 
 }
 
+var penMode = "color";
 function colorPicker(){ //Choose colour 
     const color = document.getElementById("pickColor");
+    color.addEventListener('click', ()=>{
+        penMode = "color"; //make sure pen is ready to colour
+    })
     return color.value;
 }   
 
+let eraser = document.getElementById('eraser'); //eraser function
+eraser.addEventListener('click',()=>{
+    penMode = "erase";
+})
 
+let clear = document.getElementById('clear'); //clear board function
+clear.addEventListener('click', ()=>{
+    const gridSquare = document.querySelectorAll('#gridSquare');
+    gridSquare.forEach(e =>{
+        e.style.backgroundColor = "white";
+    })
+})
 
+let lines = document.getElementById('lines'); //toggle grid lines
+lines.addEventListener('click', ()=>{
+    const gridSquare = document.querySelectorAll('#gridSquare');
+    gridSquare.forEach(e =>{
+        if (linesMode == "on")
+            e.style.boxShadow = null;
+        else if (linesMode == "off")
+            e.style.boxShadow = "0px 0px 0px 1px rgba(0,0,0,0.07)";
+    })
+    if(linesMode == "on")
+        linesMode = "off";
+    else if(linesMode == "off")
+        linesMode = "on";
+})
