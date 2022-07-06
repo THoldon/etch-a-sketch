@@ -23,22 +23,19 @@ function gridSlider(){
     var output = document.getElementById("size");
     output.innerHTML = "16 x 16";
     gridSquares(16);
+    gridColor();
     gridSlider.oninput = function() {
         clearGrid();
         output.innerHTML = gridSlider.value + " x " + gridSlider.value;
         gridSquares(gridSlider.value);
+        gridColor();
     }
 }
 gridSlider();
 
 function clearGrid(){
     grid.innerHTML = '';
-    //const gridSquare = document.querySelectorAll('#gridSquare');
-    //gridSquare.grid.removeChild(gridSquare);
 }
-
-
-
 
 var mouseDown = false;
 document.body.onmousedown = () => mouseDown = true; //click part of drag and click function
@@ -57,5 +54,5 @@ function gridColor(){
     }) 
 }
 
-gridColor();
+
 
