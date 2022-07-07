@@ -1,16 +1,29 @@
+#contentContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body{
+    background-color:rgb(43, 42, 42);;
+    color: white;
+}
+
+#header{
+    padding-bottom: 12px;
+}
+
 #grid{
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
 }
+
 
 #gridSquare{
     display: flex;    
-    width: 31.25px;
-    height: 31.25px;
     user-select: none; /*prevent dragging*/
-    border-radius: 1px; 
 }
 
 .slidecontainer{
@@ -20,6 +33,10 @@
 .slider{
     appearance: none;
     height: 20px;
+    width: 400px;
+    border: 12px;
+    border-style: solid;
+    border-color: grey;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -31,3 +48,14 @@
 .slider:hover{
     opacity: 1;
 }
+
+#pickColor{
+    width: 80px;
+    height: 40px;
+}
+
+button{
+    border-radius: 12px;
+    border-color:blueviolet;
+}
+

@@ -8,19 +8,24 @@
 </html>
 
 <body>
-    <div id = "grid">
+    <div id = "contentContainer">
+        <img src="images/header.png" id = "header" alt="header">
+        <div id = "gridContainer">
+            <div id = "grid">
 
-    </div>
-    <div id = "ui">
-        <div class = "slidecontainer">
-            <input type = "range" min = "1" max = "100" value = "16" class = "slider" id = "gridSlider">
-            <p>Size: <span id = "size"></span></p>
+            </div>
         </div>
-        <input type = "color" id = "pickColor" value = "#000000">
-        <button id = "eraser" class = "button">Eraser</button>
-        <button id = "clear" class = "button">Clear</button>
-        <button id = "lines" class = "button">Toggle Grid Lines</button>
+        <p></p>
+        <div id = "ui">
+            <div class = "slidecontainer">
+                <input type = "range" min = "1" max = "100" value = "16" class = "slider" id = "gridSlider">
+                <div id = "size">Size: </div>
+            </div>
+            <input type = "color" id = "pickColor" value = "#000000">
+            <button id = "eraser" class = "button">Eraser</button>
+            <button id = "clear" class = "button">Clear</button>
+            <button id = "lines" class = "button">Toggle Grid Lines</button>
+        </div>
     </div>
-
     <script src = "script.js"></script>
 </body>
