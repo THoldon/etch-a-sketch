@@ -64,18 +64,21 @@ function gridColor(){
 var penMode = "color";
 function colorPicker(){ //Choose colour 
     const color = document.getElementById("pickColor");
-    color.addEventListener('click', ()=>{
-        penMode = "color"; //make sure pen is ready to colour
-    })
     return color.value;
 }   
 
 let eraser = document.getElementById('eraser'); //eraser function
+eraser.style.backgroundColor = 'pink'; //untoggled colour;
 eraser.addEventListener('click',()=>{
-    penMode = "erase";
+    if(penMode != "erase")
+        penMode = "erase";
+    else if (penMode == "erase")
+        penMode = "color";
+    buttonClick(eraser);
 })
 
 let clear = document.getElementById('clear'); //clear board function
+clear.style.backgroundColor = 'pink'; //untoggled colour
 clear.addEventListener('click', ()=>{
     const gridSquare = document.querySelectorAll('#gridSquare');
     gridSquare.forEach(e =>{
@@ -84,16 +87,25 @@ clear.addEventListener('click', ()=>{
 })
 
 let lines = document.getElementById('lines'); //toggle grid lines
+lines.style.backgroundColor = 'pink';
 lines.addEventListener('click', ()=>{
     const gridSquare = document.querySelectorAll('#gridSquare');
+    buttonClick(lines);
     gridSquare.forEach(e =>{
         if (linesMode == "on")
-            e.style.boxShadow = null;
+            e.style.boxShadow = null; //remove grid lines
         else if (linesMode == "off")
-            e.style.boxShadow = "0px 0px 0px 1px rgba(0,0,0,0.07)";
+            e.style.boxShadow = "0px 0px 0px 1px rgba(0,0,0,0.07)"; //restore grid lines
     })
-    if(linesMode == "on")
+    if(linesMode == "on") //make the button a toggle
         linesMode = "off";
     else if(linesMode == "off")
         linesMode = "on";
 })
+
+function buttonClick(button){ // button looks like its toggling
+    if(button.style.backgroundColor == 'pink')
+        button.style.backgroundColor = 'red';
+    else if (button.style.backgroundColor == 'red')
+        button.style.backgroundColor = 'pink';
+}
